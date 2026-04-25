@@ -1,8 +1,37 @@
+```
+# Dependencies
 node_modules/
-build/
+
+# Build outputs
 dist/
-coverage/
-.DS_Store
+build/
+*.js.map
+*.ts.map
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
 *.log
-.env*
-!.env.example
+
+# Temp files
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+```
