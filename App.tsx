@@ -97,11 +97,11 @@ export default function App() {
             <h1 
               className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight"
               style={{
-                background: 'linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #06b6d4 100%)',
+                background: 'linear-gradient(135deg, #0891b2 0%, #1e3a8a 50%, #0e7490 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(34, 211, 238, 0.5))'
+                filter: 'drop-shadow(0 0 15px rgba(8, 145, 178, 0.4))'
               }}
             >
               Rick's Addons
