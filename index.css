@@ -66,10 +66,6 @@ a {
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
 /* Scrollbar styling - Firefox */
 * {
   scrollbar-width: thin;
@@ -85,4 +81,42 @@ a, button {
 .motion-safe {
   transform: translateZ(0);
   will-change: auto;
+}
+
+/* DISABLE ALL HOVER EFFECTS for cross-browser consistency */
+*:hover {
+  transform: none !important;
+  translate: none !important;
+  background-color: initial !important;
+  border-color: initial !important;
+  box-shadow: none !important;
+  color: initial !important;
+  opacity: initial !important;
+}
+
+*:hover * {
+  transform: none !important;
+  translate: none !important;
+  background-color: initial !important;
+  border-color: initial !important;
+  box-shadow: none !important;
+  color: initial !important;
+  opacity: initial !important;
+}
+
+.group:hover * {
+  transform: none !important;
+  translate: none !important;
+  background-color: initial !important;
+  border-color: initial !important;
+  box-shadow: none !important;
+  color: initial !important;
+  opacity: initial !important;
+}
+
+/* Ensure elements keep their default state */
+.transition,
+.transition-all,
+.transition-colors {
+  transition: none !important;
 }
