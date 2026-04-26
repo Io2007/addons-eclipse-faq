@@ -95,13 +95,9 @@ export default function App() {
         <header className="mb-10 md:mb-16 flex flex-col items-start gap-6 md:items-end md:justify-between">
           <div className="space-y-4 max-w-full">
             <h1 
-              className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-purple-400"
               style={{
-                background: 'linear-gradient(135deg, #a855f7 0%, #7c3aed 50%, #a855f7 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.6))'
+                textShadow: '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(124, 58, 237, 0.3)'
               }}
             >
               Rick's Addons
