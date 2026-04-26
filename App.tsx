@@ -94,12 +94,6 @@ export default function App() {
         {/* Header */}
         <header className="mb-10 md:mb-16 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
           <div className="space-y-4">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 shadow-lg shadow-indigo-500/[0.15]">
-                <Sparkles size={20} className="text-indigo-300" />
-              </div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-indigo-400">Premium Addons</span>
-            </div>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl text-balance bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text">
               Rick's Addons
             </h1>
@@ -108,11 +102,6 @@ export default function App() {
 
         {/* Live Modules Grid */}
         <section className="mb-12 md:mb-16">
-          <div className="flex items-center gap-3 mb-5">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Live Modules</span>
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-          </div>
           <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
