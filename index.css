@@ -123,3 +123,36 @@ p, h1, h2, h3, h4, h5, h6, span, li {
   -moz-user-select: text;
   user-select: text;
 }
+
+/* Disable extra glowing/shadow effects on button press for cross-browser consistency */
+button:active,
+button:focus,
+a:active,
+a:focus {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Remove transform effects on active state for consistency */
+button:active,
+a:active {
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
+/* Firefox-specific: remove any extra focus ring glow */
+@-moz-document url-prefix() {
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  
+  button:active,
+  a:active {
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
