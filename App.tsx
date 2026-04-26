@@ -95,10 +95,7 @@ export default function App() {
         <header className="mb-10 md:mb-16 flex flex-col items-start gap-6 md:items-end md:justify-between">
           <div className="space-y-4 max-w-full">
             <h1 
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-purple-400"
-              style={{
-                textShadow: '0 0 30px rgba(168, 85, 247, 0.4), 0 0 60px rgba(124, 58, 237, 0.3)'
-              }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-normal bg-clip-text text-transparent bg-gradient-to-r from-purple-950 via-purple-900 to-purple-950 tracking-tight break-words"
             >
               Rick's Addons
             </h1>
