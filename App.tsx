@@ -46,7 +46,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
               ? 'bg-gradient-to-br from-indigo-500/30 to-purple-500/30 text-indigo-300 shadow-inner' 
               : 'bg-white/[0.04] text-zinc-500'
           }`}>
-            {icon || <HelpCircle size={12} className="sm:size-14 lg:size-16" />}
+            {icon || <HelpCircle size={8} className="sm:size-10 lg:size-11" />}
           </div>
           <span className={`font-semibold leading-snug mt-1 sm:mt-0 tracking-tight text-xs sm:text-sm lg:text-base ${
             isOpen ? 'text-white' : 'text-zinc-300'
@@ -61,7 +61,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
             isOpen ? 'text-indigo-400' : 'text-zinc-600'
           }`}
         >
-          <ChevronDown size={12} className="sm:size-14 lg:size-16" />
+          <ChevronDown size={8} className="sm:size-10 lg:size-11" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -95,7 +95,7 @@ export default function App() {
         <header className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 flex flex-col items-center w-full">
           <div className="space-y-2 sm:space-y-3 lg:space-y-4 max-w-full text-center">
             <h1 
-              className="text-base sm:text-lg lg:text-xl font-medium tracking-tight break-words w-full text-white"
+              className="text-lg sm:text-xl lg:text-2xl font-medium tracking-tight break-words w-full text-white"
             >
               Rick's Addons
             </h1>
@@ -110,27 +110,27 @@ export default function App() {
                 name: 'ClaudeChrome',
                 desc: 'TIDAL HiFi streaming via Cloudflare Workers.',
                 url: 'https://monochrome1.cyrusna29.workers.dev/',
-                icon: <Music size={12} className="sm:size-14 lg:size-16" />,
+                icon: <Music size={8} className="sm:size-10 lg:size-11" />,
                 badge: { text: 'Recommended', color: 'indigo' },
               },
               {
                 name: 'Spotiflac-Eclipse',
                 desc: 'Hybrid Deezer search and lossless TIDAL stream.',
                 url: 'https://spotiflac-eclipse.cyrusna29.workers.dev/',
-                icon: <Radio size={12} className="sm:size-14 lg:size-16" />,
+                icon: <Radio size={8} className="sm:size-10 lg:size-11" />,
               },
               {
                 name: 'Eclipse3',
                 desc: 'SoundCloud streaming. Recommended only as a fallback due to the 30s limit.',
                 url: 'https://eclipse3.cyrusna29.workers.dev/',
-                icon: <Headphones size={12} className="sm:size-14 lg:size-16" />,
+                icon: <Headphones size={8} className="sm:size-10 lg:size-11" />,
                 badge: { text: 'Fallback', color: 'amber' },
               },
               {
                 name: 'All-In-One',
                 desc: 'Universal tool for radio, podcasts, and audiobooks.',
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
-                icon: <Zap size={12} className="sm:size-14 lg:size-16" />,
+                icon: <Zap size={8} className="sm:size-10 lg:size-11" />,
               },
             ].map((addon) => (
               <a
@@ -184,7 +184,7 @@ export default function App() {
           <section className="space-y-3 sm:space-y-4 lg:space-y-5">
             <div className="mb-3 sm:mb-4 lg:mb-5 flex items-center gap-2 sm:gap-2.5">
               <div className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 items-center justify-center rounded-lg border border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-indigo-300 shadow-md shadow-indigo-500/[0.1]">
-                <AlertCircle size={10} className="sm:size-12 lg:size-14" />
+                <AlertCircle size={9} className="sm:size-10 lg:size-10.5" />
               </div>
               <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-zinc-100 tracking-tight">Service Policy & Notices</h2>
             </div>
@@ -229,7 +229,7 @@ export default function App() {
               <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/[0.06] to-purple-500/[0.04] p-4 sm:p-5 lg:p-6 shadow-lg shadow-indigo-500/[0.08] backdrop-blur-sm">
                 <div className="absolute -right-16 sm:-right-24 lg:-right-32 -top-16 sm:-top-24 lg:-top-32 h-32 w-32 sm:h-64 sm:w-64 lg:h-80 lg:w-80 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-[60px] sm:blur-[100px] lg:blur-[120px] pointer-events-none" />
                 <h4 className="mb-3 sm:mb-5 lg:mb-6 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-[13px] lg:text-sm font-semibold text-indigo-300 relative z-10 tracking-wide">
-                  <MessageSquare size={12} className="sm:size-14 lg:size-16" />
+                  <MessageSquare size={8} className="sm:size-10 lg:size-11" />
                   Support & Contact
                 </h4>
                 <div className="grid grid-cols-1 gap-2 sm:gap-3 lg:gap-4 sm:grid-cols-2 relative z-10 mb-2 sm:mb-3 lg:mb-4">
@@ -298,14 +298,14 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-2">
              <div className="space-y-1">
                 <FaqItem 
-                  icon={<Zap size={12} className="sm:size-14 lg:size-16" />}
+                  icon={<Zap size={8} className="sm:size-10 lg:size-11" />}
                   question="What exactly are these addons?"
                   answer="They are specialized backend scripts (Addons) that allow the Eclipse Music app to access high-quality audio sources that normally require complex authentication or paid tiers, all handled serverless-ly."
                 />
              </div>
              <div className="space-y-1">
                 <FaqItem 
-                  icon={<Clock size={12} className="sm:size-14 lg:size-16" />}
+                  icon={<Clock size={8} className="sm:size-10 lg:size-11" />}
                   question="How often are tokens updated?"
                   answer="Tokens should be manually regenerated whenever playback fails with an 'Authentication Error'. This usually happens after a few days or if the backend instance has a hard reset."
                 />
