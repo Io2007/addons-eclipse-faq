@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-/* Cross-browser base styles */
+/* =====================================================
+   CROSS-BROWSER BASE STYLES - Chrome-like rendering
+   ===================================================== */
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -8,21 +10,24 @@
   text-rendering: optimizeLegibility;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
 }
 
 html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-smooth: always;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "kern" 1, "liga" 1;
-  -webkit-font-feature-settings: "kern" 1, "liga" 1;
-  -moz-font-feature-settings: "kern" 1, "liga" 1;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -webkit-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
 }
 
 /* Firefox button focus fix */
@@ -72,109 +77,209 @@ html {
   color: rgb(199, 210, 254);
 }
 
-/* Force GPU acceleration for better animation performance */
+/* =====================================================
+   HARDWARE ACCELERATION - Critical for smooth animations
+   ===================================================== */
 .group,
 [class*="hover:"],
-[class*="motion-"] {
-  transform: translateZ(0);
+[class*="motion-"],
+.transition-all,
+.transition-opacity,
+.transition-transform,
+.backdrop-blur,
+.backdrop-blur-sm {
+  transform: translate3d(0, 0, 0);
   will-change: auto;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-will-change: auto;
 }
 
-/* Firefox-specific improvements - comprehensive fixes */
+/* =====================================================
+   GRADIENT RENDERING FIXES
+   ===================================================== */
+.bg-gradient-to-br,
+.bg-gradient-to-r,
+.bg-gradient-to-l,
+.bg-gradient-to-t,
+.bg-gradient-to-b,
+[class*="bg-gradient"] {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+/* =====================================================
+   BACKDROP BLUR ENHANCEMENTS
+   ===================================================== */
+.backdrop-blur,
+.backdrop-blur-sm,
+.backdrop-blur-md,
+.backdrop-blur-lg,
+[class*="backdrop-blur"] {
+  -webkit-backdrop-filter: blur(12px) saturate(200%);
+  backdrop-filter: blur(12px) saturate(200%);
+}
+
+/* =====================================================
+   SHADOW RENDERING
+   ===================================================== */
+.shadow-sm,
+.shadow,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl,
+[class*="shadow"] {
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* =====================================================
+   ROUNDED CORNERS FIX
+   ===================================================== */
+.rounded,
+.rounded-lg,
+.rounded-xl,
+.rounded-2xl,
+.rounded-full,
+[class*="rounded"] {
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+}
+
+/* =====================================================
+   FIREFOX-SPECIFIC COMPREHENSIVE FIXES
+   ===================================================== */
 @-moz-document url-prefix() {
-  /* Enhanced font rendering to match Chrome */
+  /* Force Chrome-like font rendering */
   html, body {
-    -moz-osx-font-smoothing: grayscale;
-    font-smooth: always;
-    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: always !important;
+    text-rendering: optimizeLegibility !important;
   }
   
-  /* Make text appear sharper like Chrome */
+  /* Headings need extra kerning */
   h1, h2, h3, h4, h5, h6 {
-    text-rendering: optimizeLegibility;
-    -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility !important;
+    -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1 !important;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1 !important;
+    letter-spacing: -0.02em;
   }
   
-  /* Improve gradient rendering in Firefox */
+  /* All text elements */
+  p, span, a, button, label {
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+  }
+  
+  /* Gradient fix - force proper rendering */
   .bg-gradient-to-br,
   .bg-gradient-to-r,
+  .bg-gradient-to-l,
+  .bg-gradient-to-t,
+  .bg-gradient-to-b,
   [class*="bg-gradient"] {
-    background-size: 100% 100%;
-    -moz-force-broken-image-icon: 0;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    image-rendering: -moz-crisp-edges !important;
   }
   
-  /* Enhanced backdrop blur for Firefox */
-  .backdrop-blur-sm,
+  /* Backdrop blur - stronger for Firefox */
   .backdrop-blur,
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
   [class*="backdrop-blur"] {
-    -moz-backdrop-filter: blur(8px) saturate(180%);
-    backdrop-filter: blur(8px) saturate(180%);
+    -moz-backdrop-filter: blur(16px) saturate(220%) !important;
+    backdrop-filter: blur(16px) saturate(220%) !important;
   }
   
-  /* Smooth out animations with better timing */
+  /* Shadows - more pronounced */
+  .shadow-sm,
+  .shadow,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl,
+  [class*="shadow"] {
+    -moz-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Transitions - smoother timing */
   .transition-all,
   .transition-opacity,
   .transition-colors,
   .transition-transform,
+  .transition-shadow,
   [class*="transition-"] {
-    -moz-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    -moz-transition-duration: 0.35s !important;
+    transition-duration: 0.35s !important;
   }
   
-  /* Fix for rounded corners with borders in Firefox */
-  .rounded-2xl,
-  .rounded-xl,
-  .rounded-lg,
-  .rounded-full,
-  [class*="rounded"] {
-    -moz-background-clip: padding-box;
-  }
-  
-  /* Enhance shadow rendering */
-  .shadow-lg,
-  .shadow-xl,
-  .shadow-sm,
-  [class*="shadow"] {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  /* Improve opacity transitions */
-  .opacity-0,
-  .opacity-50,
-  .opacity-100,
-  [class*="opacity-"] {
-    -moz-transition: opacity 0.3s ease;
-  }
-  
-  /* Force hardware acceleration on animated elements */
+  /* Hover states - force GPU */
   .group:hover,
   [class*="hover:"]:hover,
   [class*="motion-"] {
-    transform: translate3d(0, 0, 0);
-    perspective: 1000px;
+    -moz-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+    -moz-perspective: 1000px !important;
+    perspective: 1000px !important;
   }
   
-  /* Better gradient blend for cards */
-  .from-white\\/\\[0\\.03\\],
-  .to-white\\/\\[0\\.01\\],
-  [class*="from-"],
-  [class*="to-"] {
-    background-blend-mode: normal;
-  }
-  
-  /* Improve badge and pill rendering */
-  .rounded-full,
-  [class*="rounded-full"] {
-    -moz-border-radius: 9999px;
-  }
-  
-  /* Enhance border visibility */
+  /* Borders - crisper */
   .border,
   [class*="border"] {
-    -moz-border-top-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
+    -moz-border-top-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    border-style: solid !important;
+  }
+  
+  /* Rounded corners */
+  .rounded,
+  .rounded-lg,
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-full,
+  [class*="rounded"] {
+    -moz-border-radius: inherit !important;
+    -moz-background-clip: padding !important;
+    background-clip: padding-box !important;
+  }
+  
+  /* Opacity transitions */
+  .opacity-0,
+  .opacity-5,
+  .opacity-10,
+  .opacity-20,
+  .opacity-30,
+  .opacity-40,
+  .opacity-50,
+  .opacity-60,
+  .opacity-70,
+  .opacity-80,
+  .opacity-90,
+  .opacity-100,
+  [class*="opacity-"] {
+    -moz-transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+    transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
+  }
+  
+  /* Transform origins */
+  .scale,
+  .scale-95,
+  .scale-100,
+  .scale-105,
+  [class*="scale-"],
+  .rotate,
+  [class*="rotate-"] {
+    -moz-transform-origin: center center !important;
+    transform-origin: center center !important;
   }
 }
