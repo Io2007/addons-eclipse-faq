@@ -46,7 +46,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
               ? 'bg-gradient-to-br from-indigo-500/30 to-purple-500/30 text-indigo-300 shadow-inner' 
               : 'bg-white/[0.04] text-zinc-500'
           }`}>
-            {icon || <HelpCircle size={8} className="sm:size-10 lg:size-11" />}
+            {icon || <HelpCircle size={6} className="sm:size-8 lg:size-9" />}
           </div>
           <span className={`font-semibold leading-snug mt-1 sm:mt-0 tracking-tight text-xs sm:text-sm lg:text-base ${
             isOpen ? 'text-white' : 'text-zinc-300'
@@ -61,7 +61,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
             isOpen ? 'text-indigo-400' : 'text-zinc-600'
           }`}
         >
-          <ChevronDown size={8} className="sm:size-10 lg:size-11" />
+          <ChevronDown size={6} className="sm:size-8 lg:size-9" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -95,7 +95,7 @@ export default function App() {
         <header className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 flex flex-col items-center w-full">
           <div className="space-y-2 sm:space-y-3 lg:space-y-4 max-w-full text-center">
             <h1 
-              className="text-lg sm:text-xl lg:text-2xl font-medium tracking-tight break-words w-full text-white"
+              className="text-base sm:text-lg lg:text-xl font-medium tracking-tight break-words w-full text-white"
             >
               Rick's Addons
             </h1>
@@ -110,27 +110,27 @@ export default function App() {
                 name: 'ClaudeChrome',
                 desc: 'TIDAL HiFi streaming via Cloudflare Workers.',
                 url: 'https://monochrome1.cyrusna29.workers.dev/',
-                icon: <Music size={8} className="sm:size-10 lg:size-11" />,
+                icon: <Music size={6} className="sm:size-8 lg:size-9" />,
                 badge: { text: 'Recommended', color: 'indigo' },
               },
               {
                 name: 'Spotiflac-Eclipse',
                 desc: 'Hybrid Deezer search and lossless TIDAL stream.',
                 url: 'https://spotiflac-eclipse.cyrusna29.workers.dev/',
-                icon: <Radio size={8} className="sm:size-10 lg:size-11" />,
+                icon: <Radio size={6} className="sm:size-8 lg:size-9" />,
               },
               {
                 name: 'Eclipse3',
                 desc: 'SoundCloud streaming. Recommended only as a fallback due to the 30s limit.',
                 url: 'https://eclipse3.cyrusna29.workers.dev/',
-                icon: <Headphones size={8} className="sm:size-10 lg:size-11" />,
+                icon: <Headphones size={6} className="sm:size-8 lg:size-9" />,
                 badge: { text: 'Fallback', color: 'amber' },
               },
               {
                 name: 'All-In-One',
                 desc: 'Universal tool for radio, podcasts, and audiobooks.',
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
-                icon: <Zap size={8} className="sm:size-10 lg:size-11" />,
+                icon: <Zap size={6} className="sm:size-8 lg:size-9" />,
               },
             ].map((addon) => (
               <a
@@ -146,13 +146,13 @@ export default function App() {
                     <div className="p-1.5 sm:p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300">
                       {addon.icon}
                     </div>
-                    <ExternalLink size={10} className="sm:size-12 lg:size-14 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+                    <ExternalLink size={8} className="sm:size-10 lg:size-11 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
                       <h3 className="text-xs sm:text-[15px] lg:text-base font-semibold text-white tracking-tight">{addon.name}</h3>
                       {addon.badge && (
-                        <span className={`inline-flex items-center rounded-full border px-1.5 sm:px-2 py-0.5 text-[8px] sm:text-[9px] lg:text-[10px] font-bold uppercase tracking-wider ${
+                        <span className={`inline-flex items-center rounded-full border px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-wider ${
                           addon.badge.color === 'indigo' 
                             ? 'border-indigo-500/30 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300' 
                             : 'border-amber-500/30 bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300'
@@ -184,7 +184,7 @@ export default function App() {
           <section className="space-y-3 sm:space-y-4 lg:space-y-5">
             <div className="mb-3 sm:mb-4 lg:mb-5 flex items-center gap-2 sm:gap-2.5">
               <div className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 items-center justify-center rounded-lg border border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-indigo-300 shadow-md shadow-indigo-500/[0.1]">
-                <AlertCircle size={9} className="sm:size-10 lg:size-10.5" />
+                <AlertCircle size={7} className="sm:size-9 lg:size-10" />
               </div>
               <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-zinc-100 tracking-tight">Service Policy & Notices</h2>
             </div>
@@ -194,7 +194,7 @@ export default function App() {
               {/* Notice 1 */}
               <div className="group rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.04] to-red-500/[0.02] p-3 sm:p-4 lg:p-5 shadow-sm hover:border-orange-500/30 hover:shadow-md transition-all duration-300">
                 <h4 className="mb-1.5 sm:mb-2 lg:mb-2.5 text-xs sm:text-[13px] lg:text-sm font-semibold text-zinc-100 flex items-center gap-1.5 sm:gap-2">
-                  <AlertCircle size={10} className="sm:size-12 lg:size-14 text-orange-400" />
+                  <AlertCircle size={8} className="sm:size-10 lg:size-11 text-orange-400" />
                   SoundCloud Playback
                 </h4>
                 <p className="text-[11px] sm:text-xs lg:text-sm text-zinc-400 leading-relaxed">
@@ -206,20 +206,20 @@ export default function App() {
               {/* Notice 2 */}
               <div className="rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-3 sm:p-4 lg:p-5 shadow-sm backdrop-blur-sm">
                 <h4 className="mb-2 sm:mb-3 lg:mb-3.5 text-xs sm:text-[13px] lg:text-sm font-semibold text-zinc-100 flex items-center gap-1.5 sm:gap-2">
-                  <ShieldAlert size={10} className="sm:size-12 lg:size-14 text-zinc-400" />
+                  <ShieldAlert size={8} className="sm:size-10 lg:size-11 text-zinc-400" />
                   Community Advisory
                 </h4>
                 <ul className="space-y-2 sm:space-y-3 lg:space-y-3.5 text-[11px] sm:text-xs lg:text-sm text-zinc-400">
                   <li className="flex items-start gap-2 sm:gap-2.5 lg:gap-3 leading-relaxed">
-                    <CheckCircle2 size={10} className="sm:size-12 lg:size-14 text-emerald-400 shrink-0 mt-px" />
+                    <CheckCircle2 size={8} className="sm:size-10 lg:size-11 text-emerald-400 shrink-0 mt-px" />
                     <span>Temporary outages (under 24h) resolve automatically. Please wait it out.</span>
                   </li>
                   <li className="flex items-start gap-2 sm:gap-2.5 lg:gap-3 leading-relaxed">
-                    <ShieldAlert size={10} className="sm:size-12 lg:size-14 text-zinc-500 shrink-0 mt-px" />
+                    <ShieldAlert size={8} className="sm:size-10 lg:size-11 text-zinc-500 shrink-0 mt-px" />
                     <span>TIDAL blocks are systemic and outside of maintainer control.</span>
                   </li>
                   <li className="flex items-start gap-2 sm:gap-2.5 lg:gap-3 leading-relaxed">
-                    <MessageSquare size={10} className="sm:size-12 lg:size-14 text-amber-400 shrink-0 mt-px" />
+                    <MessageSquare size={8} className="sm:size-10 lg:size-11 text-amber-400 shrink-0 mt-px" />
                     <span>Some issues may be app-related. For these, open a support ticket.</span>
                   </li>
                 </ul>
@@ -247,7 +247,7 @@ export default function App() {
                     </div>
                     <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 lg:py-2.5 text-[10px] sm:text-[11px] lg:text-xs font-semibold text-indigo-300 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
                       <span>Contact Developer</span>
-                      <ArrowRight size={10} className="sm:size-12 lg:size-14 opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={8} className="sm:size-10 lg:size-11 opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
                     </div>
                   </a>
                   <a
@@ -264,7 +264,7 @@ export default function App() {
                     </div>
                     <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-emerald-500/20 to-teal-500/20 px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 lg:py-2.5 text-[10px] sm:text-[11px] lg:text-xs font-semibold text-emerald-300 group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
                       <span>Open a Ticket</span>
-                      <ArrowRight size={10} className="sm:size-12 lg:size-14 opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={8} className="sm:size-10 lg:size-11 opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
                     </div>
                   </a>
                 </div>
@@ -278,7 +278,7 @@ export default function App() {
                      <p className="text-[11px] sm:text-xs lg:text-sm font-semibold text-zinc-200">Eclipse App FAQ</p>
                      <p className="text-[10px] sm:text-[11px] lg:text-xs text-zinc-500 mt-0.5 leading-relaxed">General help for the main Eclipse app (not related to addons).</p>
                    </div>
-                   <ArrowRight size={10} className="sm:size-12 lg:size-14 text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-300" />
+                   <ArrowRight size={8} className="sm:size-10 lg:size-11 text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-300" />
                 </a>
               </div>
 
@@ -291,21 +291,21 @@ export default function App() {
         <section className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 rounded-xl sm:rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 sm:p-5 lg:p-6 xl:p-8 backdrop-blur-sm shadow-lg">
           <div className="mb-4 sm:mb-6 lg:mb-7 flex items-center gap-2 sm:gap-2.5 lg:gap-3">
              <div className="p-1.5 sm:p-2 lg:p-2.5 rounded-lg bg-indigo-500/10">
-               <HelpCircle size={16} className="sm:size-18 lg:size-20 text-indigo-400" />
+               <HelpCircle size={12} className="sm:size-14 lg:size-16 text-indigo-400" />
              </div>
              <h2 className="text-xs sm:text-[15px] lg:text-base font-semibold text-zinc-100 tracking-tight">Additional Details</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-2">
              <div className="space-y-1">
                 <FaqItem 
-                  icon={<Zap size={8} className="sm:size-10 lg:size-11" />}
+                  icon={<Zap size={6} className="sm:size-8 lg:size-9" />}
                   question="What exactly are these addons?"
                   answer="They are specialized backend scripts (Addons) that allow the Eclipse Music app to access high-quality audio sources that normally require complex authentication or paid tiers, all handled serverless-ly."
                 />
              </div>
              <div className="space-y-1">
                 <FaqItem 
-                  icon={<Clock size={8} className="sm:size-10 lg:size-11" />}
+                  icon={<Clock size={6} className="sm:size-8 lg:size-9" />}
                   question="How often are tokens updated?"
                   answer="Tokens should be manually regenerated whenever playback fails with an 'Authentication Error'. This usually happens after a few days or if the backend instance has a hard reset."
                 />
@@ -317,7 +317,7 @@ export default function App() {
           <div className="rounded-xl sm:rounded-2xl border border-white/10 bg-gradient-to-br from-[#0c0c0e] to-indigo-950/[0.05] p-4 sm:p-5 lg:p-6 xl:p-8 backdrop-blur-sm shadow-lg">
             <h3 className="mb-3 sm:mb-5 lg:mb-6 flex items-center gap-1.5 sm:gap-2 lg:gap-2.5 text-xs sm:text-[13px] lg:text-sm font-semibold uppercase tracking-wider text-zinc-300">
               <div className="p-1 sm:p-1.5 lg:p-2 rounded-md bg-emerald-500/10">
-                <CheckCircle2 size={10} className="sm:size-12 lg:size-14 text-emerald-400" />
+                <CheckCircle2 size={8} className="sm:size-10 lg:size-11 text-emerald-400" />
               </div>
               Quick Troubleshooting
             </h3>
