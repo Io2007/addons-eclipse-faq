@@ -30,17 +30,17 @@ target/
 # Logs
 *.log
 
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
 # Environment
 .env
 .env.local
 *.env.*
 
-# System files
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# System
 .DS_Store
 Thumbs.db
 ```
