@@ -94,7 +94,7 @@ export default function App() {
         {/* Header */}
         <header className="mb-10 md:mb-16 flex flex-col items-start gap-6 md:items-end md:justify-between">
           <div className="space-y-4 max-w-full">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-balance break-words">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-zinc-100 bg-gradient-to-r from-zinc-100 via-zinc-300 to-zinc-500 bg-clip-text text-balance break-words">
               Rick's Addons
             </h1>
           </div>
