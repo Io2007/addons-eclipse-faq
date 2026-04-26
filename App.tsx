@@ -160,8 +160,8 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-purple-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="space-y-4 relative z-10">
                   <div className="flex items-center justify-between text-zinc-500">
-                    <div className="p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300">
-                      <img src={addon.icon} alt={addon.name} className="w-full h-full object-contain" />
+                    <div className="p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300 w-8 h-8 flex items-center justify-center">
+                      <img src={addon.icon} alt={addon.name} className="w-6 h-6 object-contain rounded" />
                     </div>
                     <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
