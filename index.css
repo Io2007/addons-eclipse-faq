@@ -1,1 +1,54 @@
 @import "tailwindcss";
+
+/* Cross-browser fixes for consistent rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix Firefox flexbox gap issues */
+@supports (-moz-appearance: none) {
+  .grid, .flex {
+    gap: revert;
+  }
+}
+
+/* Ensure consistent button styling */
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Fix backdrop-filter for Firefox */
+@supports not (backdrop-filter: blur(120px)) {
+  .blur-\[120px\], .blur-\[80px\] {
+    background-color: rgba(99, 102, 241, 0.1);
+  }
+}
+
+/* Ensure consistent selection color */
+::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+  color: rgb(199, 210, 254);
+}
+
+/* Fix for Firefox smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure images render consistently */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Fix input/textarea styling consistency */
+input, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
