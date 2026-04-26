@@ -1,12 +1,14 @@
 ```
-# Dependencies
-node_modules/
-
-# Build outputs
+# Build artifacts
 dist/
 build/
-*.js.map
-*.ts.map
+*.css
+*.js
+*.html
+
+# Dependencies
+node_modules/
+package-lock.json
 
 # Environment
 .env
@@ -16,22 +18,13 @@ build/
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Logs
+# Logs and temp files
 *.log
-
-# Temp files
 *.tmp
+*.swp
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-venv/
-.venv/
-.env
+# OS generated files
+.DS_Store
+Thumbs.db
 ```
