@@ -10,14 +10,10 @@ import {
   Clock,
   MessageSquare,
   AlertCircle,
-  Music,
   WifiOff,
   Ticket,
   Activity,
   Server,
-  Radio,
-  Headphones,
-  Sparkles,
   ArrowRight
 } from 'lucide-react';
 
@@ -128,30 +124,30 @@ export default function App() {
           <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: 'ClaudeChrome',
+                name: 'Claudochrome',
                 desc: 'TIDAL HiFi streaming via Cloudflare Workers.',
                 url: 'https://monochrome1.cyrusna29.workers.dev/',
-                icon: <Music size={18} />,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQe_DbvCgGyEcwqhFv8S-Y7ULHa-0FCSHlfJQqpB0CuQ&s=10',
                 badge: { text: 'Recommended', color: 'indigo' },
               },
               {
-                name: 'Spotiflac-Eclipse',
+                name: 'ClaudiFLAC',
                 desc: 'Hybrid Deezer search and lossless TIDAL stream.',
                 url: 'https://spotiflac-eclipse.cyrusna29.workers.dev/',
-                icon: <Radio size={18} />,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVEu2Vv2QFKNF9ogOI2kI36dpX3whid9Zr4lvx7bsZAA&s=10',
               },
               {
-                name: 'Eclipse3',
+                name: 'SoundCloud',
                 desc: 'SoundCloud streaming. Recommended only as a fallback due to the 30s limit.',
                 url: 'https://eclipse3.cyrusna29.workers.dev/',
-                icon: <Headphones size={18} />,
+                icon: 'https://files.softicons.com/download/social-media-icons/simple-icons-by-dan-leech/png/128x128/soundcloud.png',
                 badge: { text: 'Fallback', color: 'amber' },
               },
               {
-                name: 'All-In-One',
+                name: 'All In One',
                 desc: 'Universal tool for radio, podcasts, and audiobooks.',
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
-                icon: <Zap size={18} />,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTueIUOQATc6lrir4FpwhFl9P656MBFPkvOV03N5P3zlA&s=10',
               },
             ].map((addon) => (
               <a
@@ -164,8 +160,8 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-purple-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="space-y-4 relative z-10">
                   <div className="flex items-center justify-between text-zinc-500">
-                    <div className="p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300">
-                      {addon.icon}
+                    <div className="rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300 w-8 h-8 flex items-center justify-center overflow-hidden">
+                      <img src={addon.icon} alt={addon.name} className="w-full h-full object-cover rounded-md" />
                     </div>
                     <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>

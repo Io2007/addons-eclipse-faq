@@ -2,28 +2,45 @@
 # Build artifacts
 dist/
 build/
-*.css
-*.js
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
 # Dependencies
 node_modules/
+venv/
+.venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+target/
+.gradle/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# Cache
-__pycache__/
-*.pyc
-.pytest_cache/
-.mypy_cache/
-.vsc*
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
-# Logs
-*.log
-
-# OS
+# System
 .DS_Store
 Thumbs.db
 ```
