@@ -22,12 +22,6 @@ html {
     font-weight: inherit;
   }
   
-  /* Fix button focus outlines */
-  button:focus {
-    outline: 2px solid rgba(99, 102, 241, 0.5);
-    outline-offset: 2px;
-  }
-  
   /* Fix backdrop-filter fallback */
   .blur-\[120px\], .blur-\[80px\] {
     background-color: rgba(99, 102, 241, 0.08);
@@ -48,8 +42,8 @@ button {
 }
 
 button:focus-visible {
-  outline: 2px solid rgba(99, 102, 241, 0.5);
-  outline-offset: 2px;
+  outline: none !important;
+  outline-offset: 0 !important;
 }
 
 /* Fix backdrop-filter for browsers that don't support it */
@@ -59,15 +53,15 @@ button:focus-visible {
   }
 }
 
-/* Consistent selection color */
+/* Consistent selection color - disabled */
 ::selection {
-  background-color: rgba(99, 102, 241, 0.3);
-  color: rgb(199, 210, 254);
+  background-color: transparent;
+  color: inherit;
 }
 
 ::-moz-selection {
-  background-color: rgba(99, 102, 241, 0.3);
-  color: rgb(199, 210, 254);
+  background-color: transparent;
+  color: inherit;
 }
 
 /* Smooth scrolling with Firefox compatibility */
@@ -111,14 +105,53 @@ a:-moz-any-link {
 }
 
 /* Prevent text selection on interactive elements */
-button, a {
+* {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
-/* Allow text selection on content */
-p, h1, h2, h3, h4, h5, h6, span, li {
+/* Disable all focus/active visual marks on buttons and links */
+button, a, [role="button"] {
+  outline: none !important;
+  -webkit-outline: none !important;
+  -webkit-focus-ring-color: transparent !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0 !important;
+  padding: 0 !important;
+  outline: 0 !important;
+}
+
+button:focus,
+button:focus-visible,
+button:active,
+a:focus,
+a:focus-visible,
+a:active,
+[role="button"]:focus,
+[role="button"]:focus-visible,
+[role="button"]:active {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border: none !important;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
+/* Allow text selection on content when needed */
+.select-text, .select-text p, .select-text h1, .select-text h2, .select-text h3, .select-text h4, .select-text h5, .select-text h6, .select-text span, .select-text li {
   -webkit-user-select: text;
   -moz-user-select: text;
   user-select: text;
@@ -133,6 +166,7 @@ a:focus {
   -webkit-box-shadow: none !important;
   filter: none !important;
   -webkit-filter: none !important;
+  outline: none !important;
 }
 
 /* Remove transform effects on active state for consistency */
@@ -148,11 +182,13 @@ a:active {
   input::-moz-focus-inner {
     border: 0;
     padding: 0;
+    outline: 0;
   }
   
   button:active,
   a:active {
     box-shadow: none !important;
     transform: none !important;
+    outline: none !important;
   }
 }

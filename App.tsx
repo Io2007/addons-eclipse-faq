@@ -71,7 +71,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-300 font-sans selection:bg-indigo-500/30 selection:text-indigo-200 pb-24 relative overflow-hidden">
+    <div className="min-h-screen bg-[#050505] text-zinc-300 font-sans pb-24 relative overflow-hidden select-none">
       {/* Background Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full pointer-events-none opacity-50" />
       
