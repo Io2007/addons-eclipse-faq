@@ -10,6 +10,11 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
     "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",
