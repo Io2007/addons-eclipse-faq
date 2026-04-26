@@ -95,7 +95,7 @@ export default function App() {
         <header className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 flex flex-col items-center w-full">
           <div className="space-y-2 sm:space-y-3 lg:space-y-4 max-w-full text-center">
             <h1 
-              className="text-base sm:text-lg lg:text-xl font-medium tracking-tight break-words w-full text-white"
+              className="text-lg sm:text-xl lg:text-2xl font-medium tracking-tight break-words w-full text-white"
             >
               Rick's Addons
             </h1>
@@ -110,27 +110,27 @@ export default function App() {
                 name: 'ClaudeChrome',
                 desc: 'TIDAL HiFi streaming via Cloudflare Workers.',
                 url: 'https://monochrome1.cyrusna29.workers.dev/',
-                icon: <Music size={6} className="sm:size-8 lg:size-9" />,
+                icon: <Music size={5} className="sm:size-6 lg:size-7" />,
                 badge: { text: 'Recommended', color: 'indigo' },
               },
               {
                 name: 'Spotiflac-Eclipse',
                 desc: 'Hybrid Deezer search and lossless TIDAL stream.',
                 url: 'https://spotiflac-eclipse.cyrusna29.workers.dev/',
-                icon: <Radio size={6} className="sm:size-8 lg:size-9" />,
+                icon: <Radio size={5} className="sm:size-6 lg:size-7" />,
               },
               {
                 name: 'Eclipse3',
                 desc: 'SoundCloud streaming. Recommended only as a fallback due to the 30s limit.',
                 url: 'https://eclipse3.cyrusna29.workers.dev/',
-                icon: <Headphones size={6} className="sm:size-8 lg:size-9" />,
+                icon: <Headphones size={5} className="sm:size-6 lg:size-7" />,
                 badge: { text: 'Fallback', color: 'amber' },
               },
               {
                 name: 'All-In-One',
                 desc: 'Universal tool for radio, podcasts, and audiobooks.',
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
-                icon: <Zap size={6} className="sm:size-8 lg:size-9" />,
+                icon: <Zap size={5} className="sm:size-6 lg:size-7" />,
               },
             ].map((addon) => (
               <a
@@ -152,7 +152,7 @@ export default function App() {
                     <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
                       <h3 className="text-xs sm:text-[15px] lg:text-base font-semibold text-white tracking-tight">{addon.name}</h3>
                       {addon.badge && (
-                        <span className={`inline-flex items-center rounded-full border px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-wider ${
+                        <span className={`inline-flex items-center rounded-full border px-2.5 sm:px-3 py-0.5 text-[10px] sm:text-[11px] lg:text-xs font-bold uppercase tracking-wider whitespace-nowrap ${
                           addon.badge.color === 'indigo' 
                             ? 'border-indigo-500/30 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300' 
                             : 'border-amber-500/30 bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300'
