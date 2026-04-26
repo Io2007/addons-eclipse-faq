@@ -59,15 +59,15 @@ button:focus-visible {
   }
 }
 
-/* Consistent selection color */
+/* Consistent selection color - disabled */
 ::selection {
-  background-color: rgba(99, 102, 241, 0.3);
-  color: rgb(199, 210, 254);
+  background-color: transparent;
+  color: inherit;
 }
 
 ::-moz-selection {
-  background-color: rgba(99, 102, 241, 0.3);
-  color: rgb(199, 210, 254);
+  background-color: transparent;
+  color: inherit;
 }
 
 /* Smooth scrolling with Firefox compatibility */
@@ -111,14 +111,14 @@ a:-moz-any-link {
 }
 
 /* Prevent text selection on interactive elements */
-button, a {
+* {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
 
-/* Allow text selection on content */
-p, h1, h2, h3, h4, h5, h6, span, li {
+/* Allow text selection on content when needed */
+.select-text, .select-text p, .select-text h1, .select-text h2, .select-text h3, .select-text h4, .select-text h5, .select-text h6, .select-text span, .select-text li {
   -webkit-user-select: text;
   -moz-user-select: text;
   user-select: text;
