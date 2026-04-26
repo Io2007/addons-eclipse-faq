@@ -32,20 +32,20 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
     <div className="mb-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full p-4 sm:p-5 flex items-start sm:items-center justify-between text-left transition-all rounded-xl group gap-4 border ${isOpen ? 'bg-white/[0.04] border-white/10' : 'bg-white/[0.01] border-white/5 hover:bg-white/[0.03]'}`}
+        className={`w-full p-4 sm:p-5 flex items-start sm:items-center justify-between text-left rounded-xl gap-4 border ${isOpen ? 'bg-white/[0.04] border-white/10' : 'bg-white/[0.01] border-white/5'}`}
       >
         <div className="flex items-start sm:items-center gap-3 sm:gap-4">
-          <div className={`p-2 rounded-lg transition-colors ${isOpen ? 'bg-indigo-500/20 text-indigo-400' : 'bg-white/5 text-zinc-500 group-hover:text-zinc-300 group-hover:bg-white/10'}`}>
+          <div className={`p-2 rounded-lg ${isOpen ? 'bg-indigo-500/20 text-indigo-400' : 'bg-white/5 text-zinc-500'}`}>
             {icon || <HelpCircle size={18} />}
           </div>
-          <span className={`font-medium transition-colors leading-snug mt-1.5 sm:mt-0 ${isOpen ? 'text-white' : 'text-zinc-200 group-hover:text-white'}`}>
+          <span className={`font-medium leading-snug mt-1.5 sm:mt-0 ${isOpen ? 'text-white' : 'text-zinc-200'}`}>
             {question}
           </span>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className={`shrink-0 mt-2 sm:mt-0 ${isOpen ? 'text-indigo-400' : 'text-zinc-600 group-hover:text-zinc-400'}`}
+          className={`shrink-0 mt-2 sm:mt-0 ${isOpen ? 'text-indigo-400' : 'text-zinc-600'}`}
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -122,12 +122,12 @@ export default function App() {
                 href={addon.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.01] p-4 sm:p-5 transition-all hover:-translate-y-0.5 hover:bg-white/[0.03] hover:border-white/15 hover:shadow-lg hover:shadow-indigo-500/[0.05]"
+                className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.01] p-4 sm:p-5"
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between text-zinc-500 group-hover:text-indigo-400 transition-colors">
+                  <div className="flex items-center justify-between text-zinc-500">
                     {addon.icon}
-                    <ExternalLink size={14} className="opacity-0 -translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all" />
+                    <ExternalLink size={14} className="opacity-70" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
@@ -142,13 +142,13 @@ export default function App() {
                         </span>
                       )}
                     </div>
-                    <p className="text-[13px] text-zinc-500 leading-relaxed font-light group-hover:text-zinc-400 transition-colors">
+                    <p className="text-[13px] text-zinc-500 leading-relaxed font-light">
                       {addon.desc}
                     </p>
                   </div>
                 </div>
                 <div className="mt-6 border-t border-white/5 pt-3">
-                  <div className="flex items-center gap-2.5 text-[11px] font-mono text-zinc-600 transition-colors group-hover:text-zinc-300 truncate">
+                  <div className="flex items-center gap-2.5 text-[11px] font-mono text-zinc-600 truncate">
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500/50" />
                     {addon.url.replace('https://', '')}
                   </div>
@@ -216,34 +216,34 @@ export default function App() {
                     href="https://discord.gg/wq5wRtMhJK"
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/5 bg-[#121214] p-4 transition-all hover:-translate-y-0.5 hover:border-indigo-500/40 hover:bg-[#18181b] hover:shadow-lg hover:shadow-indigo-500/10"
+                    className="flex flex-col justify-between overflow-hidden rounded-xl border border-white/5 bg-[#121214] p-4"
                   >
                     <div className="mb-4">
-                      <p className="text-xs font-medium text-zinc-200 mb-1 group-hover:text-indigo-300 transition-colors">Addon Support</p>
+                      <p className="text-xs font-medium text-zinc-200 mb-1">Addon Support</p>
                       <p className="text-[11px] text-zinc-500 leading-relaxed font-light">
                         For issues or bug reports of these addons.
                       </p>
                     </div>
-                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-indigo-500/10 px-3 py-2 text-[11px] font-semibold text-indigo-400 transition-all group-hover:bg-indigo-500/20 group-hover:text-indigo-200">
+                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-indigo-500/10 px-3 py-2 text-[11px] font-semibold text-indigo-400">
                       <span>Contact Developer</span>
-                      <ExternalLink size={12} className="opacity-70 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+                      <ExternalLink size={12} className="opacity-70" />
                     </div>
                   </a>
                   <a
                     href="https://discord.gg/9uSRqbEsUu"
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/5 bg-[#121214] p-4 transition-all hover:-translate-y-0.5 hover:border-emerald-500/40 hover:bg-[#18181b] hover:shadow-lg hover:shadow-emerald-500/10"
+                    className="flex flex-col justify-between overflow-hidden rounded-xl border border-white/5 bg-[#121214] p-4"
                   >
                     <div className="mb-4">
-                      <p className="text-xs font-medium text-zinc-200 mb-1 group-hover:text-emerald-300 transition-colors">App Support</p>
+                      <p className="text-xs font-medium text-zinc-200 mb-1">App Support</p>
                       <p className="text-[11px] text-zinc-500 leading-relaxed font-light">
                         Some issues may be app related, nothing Ricky can do.
                       </p>
                     </div>
-                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-emerald-500/10 px-3 py-2 text-[11px] font-semibold text-emerald-400 transition-all group-hover:bg-emerald-500/20 group-hover:text-emerald-200">
+                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-emerald-500/10 px-3 py-2 text-[11px] font-semibold text-emerald-400">
                       <span>Open a Ticket</span>
-                      <ExternalLink size={12} className="opacity-70 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+                      <ExternalLink size={12} className="opacity-70" />
                     </div>
                   </a>
                 </div>
@@ -251,13 +251,13 @@ export default function App() {
                   href="https://eclipsemusic.app/faq"
                   target="_blank"
                   rel="noreferrer"
-                  className="relative z-10 group flex items-start sm:items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-3 transition-all hover:bg-white/[0.04] hover:border-white/10 gap-2"
+                  className="relative z-10 flex items-start sm:items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-3 gap-2"
                 >
                    <div>
                      <p className="text-xs font-medium text-zinc-200">Eclipse App FAQ</p>
                      <p className="text-[11px] text-zinc-500 mt-0.5 leading-relaxed">General help for the main Eclipse app (not related to addons).</p>
                    </div>
-                   <ExternalLink size={14} className="text-zinc-500 group-hover:text-zinc-300 shrink-0 mt-1 sm:mt-0" />
+                   <ExternalLink size={14} className="text-zinc-500 shrink-0 mt-1 sm:mt-0" />
                 </a>
               </div>
 
@@ -303,7 +303,7 @@ export default function App() {
                  'Add more addons for fallback',
                  'Wait 6-24h for server resets'
                ].map((tip, i) => (
-                 <li key={tip} className="flex items-center gap-3 rounded-lg border border-transparent hover:border-white/5 hover:bg-white/[0.02] p-2.5 transition-colors text-[13px] text-zinc-300">
+                 <li key={tip} className="flex items-center gap-3 rounded-lg border border-transparent p-2.5 text-[13px] text-zinc-300">
                     <span className="flex h-5 w-5 items-center justify-center rounded bg-white/5 text-[10px] font-medium text-zinc-400 shrink-0">
                       {i + 1}
                     </span>
