@@ -1,4 +1,10 @@
 ```
+# Build artifacts
+dist/
+build/
+*.css
+*.js
+
 # Dependencies
 node_modules/
 
@@ -7,10 +13,17 @@ node_modules/
 .env.local
 *.env.*
 
-# Logs and temp files
-*.log
-*.tmp
+# Cache
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.vsc*
 
-# Editors
-.vscode/
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
 ```
