@@ -94,7 +94,7 @@ export default function App() {
         {/* Header */}
         <header className="mb-10 md:mb-16 flex flex-col items-start gap-6 md:items-end md:justify-between">
           <div className="space-y-4 max-w-full">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]" style={{ WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tighter text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]" style={{ textShadow: '0 0 30px rgba(6,182,212,0.6), 0 0 60px rgba(6,182,212,0.4)' }}>
               Rick's Addons
             </h1>
           </div>
