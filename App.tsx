@@ -161,7 +161,7 @@ export default function App() {
                 <div className="space-y-4 relative z-10">
                   <div className="flex items-center justify-between text-zinc-500">
                     <div className="p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300">
-                      <img src={addon.icon} alt={addon.name} className="w-[18px] h-[18px] object-contain" />
+                      <img src={addon.icon} alt={addon.name} className="w-5 h-5 object-contain" />
                     </div>
                     <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
