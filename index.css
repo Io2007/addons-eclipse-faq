@@ -150,136 +150,24 @@ html {
 }
 
 /* =====================================================
-   FIREFOX-SPECIFIC COMPREHENSIVE FIXES
+   FIREFOX-SPECIFIC ENHANCEMENTS (Non-intrusive)
    ===================================================== */
-@-moz-document url-prefix() {
-  /* Force Chrome-like font rendering */
-  html, body {
-    -moz-osx-font-smoothing: grayscale !important;
-    font-smooth: always !important;
-    text-rendering: optimizeLegibility !important;
+/* Better font smoothing for Firefox */
+@supports (-moz-appearance: none) {
+  html {
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
-  /* Headings need extra kerning */
   h1, h2, h3, h4, h5, h6 {
-    text-rendering: optimizeLegibility !important;
-    -moz-font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1 !important;
-    font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "dlig" 1 !important;
-    letter-spacing: -0.02em;
+    text-rendering: optimizeLegibility;
+    letter-spacing: -0.01em;
   }
   
-  /* All text elements */
-  p, span, a, button, label {
-    -moz-osx-font-smoothing: grayscale !important;
-    text-rendering: optimizeLegibility !important;
-  }
-  
-  /* Gradient fix - force proper rendering */
-  .bg-gradient-to-br,
-  .bg-gradient-to-r,
-  .bg-gradient-to-l,
-  .bg-gradient-to-t,
-  .bg-gradient-to-b,
-  [class*="bg-gradient"] {
-    background-size: 100% 100% !important;
-    background-repeat: no-repeat !important;
-    image-rendering: -moz-crisp-edges !important;
-  }
-  
-  /* Backdrop blur - stronger for Firefox */
-  .backdrop-blur,
-  .backdrop-blur-sm,
-  .backdrop-blur-md,
-  .backdrop-blur-lg,
-  [class*="backdrop-blur"] {
-    -moz-backdrop-filter: blur(16px) saturate(220%) !important;
-    backdrop-filter: blur(16px) saturate(220%) !important;
-  }
-  
-  /* Shadows - more pronounced */
-  .shadow-sm,
-  .shadow,
-  .shadow-md,
-  .shadow-lg,
-  .shadow-xl,
-  .shadow-2xl,
-  [class*="shadow"] {
-    -moz-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1) !important;
-  }
-  
-  /* Transitions - smoother timing */
+  /* Smoother transitions */
   .transition-all,
   .transition-opacity,
-  .transition-colors,
-  .transition-transform,
-  .transition-shadow,
-  [class*="transition-"] {
-    -moz-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
-    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1) !important;
-    -moz-transition-duration: 0.35s !important;
-    transition-duration: 0.35s !important;
-  }
-  
-  /* Hover states - force GPU */
-  .group:hover,
-  [class*="hover:"]:hover,
-  [class*="motion-"] {
-    -moz-transform: translate3d(0, 0, 0) !important;
-    transform: translate3d(0, 0, 0) !important;
-    -moz-perspective: 1000px !important;
-    perspective: 1000px !important;
-  }
-  
-  /* Borders - crisper */
-  .border,
-  [class*="border"] {
-    -moz-border-top-colors: none !important;
-    -moz-border-right-colors: none !important;
-    -moz-border-bottom-colors: none !important;
-    -moz-border-left-colors: none !important;
-    border-style: solid !important;
-  }
-  
-  /* Rounded corners */
-  .rounded,
-  .rounded-lg,
-  .rounded-xl,
-  .rounded-2xl,
-  .rounded-full,
-  [class*="rounded"] {
-    -moz-border-radius: inherit !important;
-    -moz-background-clip: padding !important;
-    background-clip: padding-box !important;
-  }
-  
-  /* Opacity transitions */
-  .opacity-0,
-  .opacity-5,
-  .opacity-10,
-  .opacity-20,
-  .opacity-30,
-  .opacity-40,
-  .opacity-50,
-  .opacity-60,
-  .opacity-70,
-  .opacity-80,
-  .opacity-90,
-  .opacity-100,
-  [class*="opacity-"] {
-    -moz-transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
-    transition: opacity 0.35s cubic-bezier(0.25, 0.1, 0.25, 1) !important;
-  }
-  
-  /* Transform origins */
-  .scale,
-  .scale-95,
-  .scale-100,
-  .scale-105,
-  [class*="scale-"],
-  .rotate,
-  [class*="rotate-"] {
-    -moz-transform-origin: center center !important;
-    transform-origin: center center !important;
+  .transition-transform {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
