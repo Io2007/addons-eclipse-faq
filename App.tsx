@@ -84,15 +84,6 @@ export default function App() {
               Rick's Addons
             </h1>
           </div>
-          <a
-            href="https://monochrome1.cyrusna29.workers.dev/"
-            target="_blank"
-            rel="noreferrer"
-            className="group flex flex-row-reverse md:flex-row items-center justify-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-5 py-3 md:py-2.5 text-[13px] font-semibold text-zinc-200 transition-all hover:bg-white/10 hover:text-white active:scale-[0.98] w-full md:w-auto shadow-sm"
-          >
-            HiFi Instance Health
-            <Activity size={16} className="text-emerald-400 group-hover:text-emerald-300" />
-          </a>
         </header>
 
         {/* Live Modules Grid */}
@@ -100,10 +91,11 @@ export default function App() {
           <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                name: 'Monochrome',
+                name: 'ClaudeChrome',
                 desc: 'TIDAL HiFi streaming via Cloudflare Workers.',
                 url: 'https://monochrome1.cyrusna29.workers.dev/',
                 icon: <Music size={18} />,
+                badge: { text: 'Recommended', color: 'indigo' },
               },
               {
                 name: 'Spotiflac-Eclipse',
@@ -116,6 +108,7 @@ export default function App() {
                 desc: 'SoundCloud streaming. Recommended only as a fallback due to the 30s limit.',
                 url: 'https://eclipse3.cyrusna29.workers.dev/',
                 icon: <Headphones size={18} />,
+                badge: { text: 'Fallback', color: 'amber' },
               },
               {
                 name: 'All-In-One',
@@ -137,7 +130,14 @@ export default function App() {
                     <ExternalLink size={14} className="opacity-0 -translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all" />
                   </div>
                   <div>
-                    <h3 className="text-[15px] font-medium text-white mb-1">{addon.name}</h3>
+                    <div className="flex items-center gap-2 mb-1">
+                      <h3 className="text-[15px] font-medium text-white">{addon.name}</h3>
+                      {addon.badge && (
+                        <span className={`inline-flex items-center rounded border border-${addon.badge.color}-500/20 bg-${addon.badge.color}-500/10 px-1.5 py-0.5 text-[9px] font-bold uppercase text-${addon.badge.color}-400`}>
+                          {addon.badge.text}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-[13px] text-zinc-500 leading-relaxed font-light group-hover:text-zinc-400 transition-colors">
                       {addon.desc}
                     </p>
