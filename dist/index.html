@@ -2,16 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="Rick's Addons - TIDAL HiFi streaming and more" />
     <meta name="theme-color" content="#050505" />
     <meta name="color-scheme" content="dark" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Ricky's addons</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-CoM2x2QW.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CCOAQ0JN.css">
+    <style>
+      /* Critical CSS for consistent rendering */
+      :root {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+      
+      /* Prevent iOS font boosting */
+      html {
+        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+      
+      /* Ensure consistent tap highlight */
+      * {
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      /* Prevent touch callout on iOS */
+      a, button {
+        -webkit-touch-callout: none;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-NmUnXG0P.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BVQEtdbD.css">
   </head>
   <body>
     <div id="root"></div>
