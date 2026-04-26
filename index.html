@@ -39,14 +39,47 @@
       @supports (-moz-appearance:none) {
         html, body {
           font-smooth: always;
+          -moz-osx-font-smoothing: grayscale;
         }
         
         /* Force hardware acceleration for smoother animations in Firefox */
         .group {
           transform: translateZ(0);
         }
+        
+        /* Improve gradient rendering */
+        .bg-gradient-to-br,
+        .bg-gradient-to-r {
+          background-size: 100% 100%;
+        }
+        
+        /* Enhance backdrop blur */
+        .backdrop-blur-sm {
+          -moz-backdrop-filter: blur(8px) saturate(180%);
+        }
       }
     </style>
+    <script>
+      // Firefox-specific enhancements
+      (function() {
+        const isFirefox = typeof InstallTrigger !== 'undefined';
+        if (isFirefox) {
+          document.documentElement.classList.add('firefox');
+          
+          // Add class to body when page loads for better Firefox rendering
+          document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('firefox');
+            
+            // Force GPU acceleration for animated elements
+            const animatedElements = document.querySelectorAll('.group, [class*="hover:"], [class*="motion-"]');
+            animatedElements.forEach(function(el) {
+              el.style.transform = 'translateZ(0)';
+              el.style.willChange = 'auto';
+            });
+          });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
