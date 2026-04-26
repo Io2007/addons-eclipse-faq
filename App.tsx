@@ -16,7 +16,9 @@ import {
   Activity,
   Server,
   Radio,
-  Headphones
+  Headphones,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 
 interface FaqItemProps {
@@ -32,20 +34,32 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
     <div className="mb-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full p-4 sm:p-5 flex items-start sm:items-center justify-between text-left rounded-xl gap-4 border ${isOpen ? 'bg-white/[0.04] border-white/10' : 'bg-white/[0.01] border-white/5'}`}
+        className={`w-full p-4 sm:p-5 flex items-start sm:items-center justify-between text-left rounded-xl gap-4 border backdrop-blur-sm ${
+          isOpen 
+            ? 'bg-gradient-to-br from-indigo-500/[0.08] to-purple-500/[0.04] border-indigo-500/30 shadow-lg shadow-indigo-500/[0.08]' 
+            : 'bg-white/[0.02] border-white/10'
+        }`}
       >
         <div className="flex items-start sm:items-center gap-3 sm:gap-4">
-          <div className={`p-2 rounded-lg ${isOpen ? 'bg-indigo-500/20 text-indigo-400' : 'bg-white/5 text-zinc-500'}`}>
+          <div className={`p-2.5 rounded-xl ${
+            isOpen 
+              ? 'bg-gradient-to-br from-indigo-500/30 to-purple-500/30 text-indigo-300 shadow-inner' 
+              : 'bg-white/[0.04] text-zinc-500'
+          }`}>
             {icon || <HelpCircle size={18} />}
           </div>
-          <span className={`font-medium leading-snug mt-1.5 sm:mt-0 ${isOpen ? 'text-white' : 'text-zinc-200'}`}>
+          <span className={`font-semibold leading-snug mt-1.5 sm:mt-0 tracking-tight ${
+            isOpen ? 'text-white' : 'text-zinc-300'
+          }`}>
             {question}
           </span>
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-          className={`shrink-0 mt-2 sm:mt-0 ${isOpen ? 'text-indigo-400' : 'text-zinc-600'}`}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
+          className={`shrink-0 mt-2 sm:mt-0 ${
+            isOpen ? 'text-indigo-400' : 'text-zinc-600'
+          }`}
         >
           <ChevronDown size={18} />
         </motion.div>
@@ -56,10 +70,10 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             className="overflow-hidden"
           >
-            <div className="p-5 pt-2 text-zinc-400 leading-relaxed text-sm ml-12 sm:ml-14">
+            <div className="p-5 pt-2 text-zinc-400 leading-relaxed text-sm ml-12 sm:ml-14 bg-gradient-to-r from-indigo-500/[0.03] to-transparent rounded-b-xl -mx-5 px-5">
               {answer}
             </div>
           </motion.div>
@@ -80,7 +94,13 @@ export default function App() {
         {/* Header */}
         <header className="mb-10 md:mb-16 flex flex-col items-start gap-6 md:flex-row md:items-end md:justify-between">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl text-balance">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 shadow-lg shadow-indigo-500/[0.15]">
+                <Sparkles size={20} className="text-indigo-300" />
+              </div>
+              <span className="text-xs font-semibold uppercase tracking-widest text-indigo-400">Premium Addons</span>
+            </div>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl text-balance bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text">
               Rick's Addons
             </h1>
           </div>
@@ -88,6 +108,11 @@ export default function App() {
 
         {/* Live Modules Grid */}
         <section className="mb-12 md:mb-16">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-zinc-500">Live Modules</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+          </div>
           <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
@@ -122,35 +147,38 @@ export default function App() {
                 href={addon.url}
                 target="_blank"
                 rel="noreferrer"
-                className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.01] p-4 sm:p-5"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 sm:p-5 backdrop-blur-sm shadow-sm hover:shadow-xl hover:shadow-indigo-500/[0.08] hover:border-indigo-500/20 transition-all duration-300"
               >
-                <div className="space-y-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-purple-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="space-y-4 relative z-10">
                   <div className="flex items-center justify-between text-zinc-500">
-                    {addon.icon}
-                    <ExternalLink size={14} className="opacity-70" />
+                    <div className="p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300">
+                      {addon.icon}
+                    </div>
+                    <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-[15px] font-medium text-white">{addon.name}</h3>
+                      <h3 className="text-[15px] font-semibold text-white tracking-tight">{addon.name}</h3>
                       {addon.badge && (
-                        <span className={`inline-flex items-center rounded border px-1.5 py-0.5 text-[9px] font-bold uppercase ${
+                        <span className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider ${
                           addon.badge.color === 'indigo' 
-                            ? 'border-indigo-500/20 bg-indigo-500/10 text-indigo-400' 
-                            : 'border-amber-500/20 bg-amber-500/10 text-amber-400'
+                            ? 'border-indigo-500/30 bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300' 
+                            : 'border-amber-500/30 bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300'
                         }`}>
                           {addon.badge.text}
                         </span>
                       )}
                     </div>
-                    <p className="text-[13px] text-zinc-500 leading-relaxed font-light">
+                    <p className="text-[13px] text-zinc-400 leading-relaxed font-light">
                       {addon.desc}
                     </p>
                   </div>
                 </div>
-                <div className="mt-6 border-t border-white/5 pt-3">
-                  <div className="flex items-center gap-2.5 text-[11px] font-mono text-zinc-600 truncate">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500/50" />
-                    {addon.url.replace('https://', '')}
+                <div className="mt-6 border-t border-white/5 pt-3 relative z-10">
+                  <div className="flex items-center gap-2.5 text-[11px] font-mono text-zinc-500 truncate">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
+                    <span className="group-hover:text-zinc-400 transition-colors duration-300">{addon.url.replace('https://', '')}</span>
                   </div>
                 </div>
               </a>
@@ -164,33 +192,35 @@ export default function App() {
           {/* Policies & Help */}
           <section className="space-y-4">
             <div className="mb-5 flex items-center gap-2.5">
-              <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-indigo-500/20 bg-indigo-500/10 text-indigo-400">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-indigo-300 shadow-md shadow-indigo-500/[0.1]">
                 <AlertCircle size={14} />
               </div>
-              <h2 className="text-base font-medium text-zinc-100 tracking-tight">Service Policy & Notices</h2>
+              <h2 className="text-base font-semibold text-zinc-100 tracking-tight">Service Policy & Notices</h2>
             </div>
 
             <div className="space-y-3">
               
               {/* Notice 1 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 shadow-sm">
-                <h4 className="mb-2 text-[13px] font-medium text-zinc-200">
+              <div className="group rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.04] to-red-500/[0.02] p-4 sm:p-5 shadow-sm hover:border-orange-500/30 hover:shadow-md transition-all duration-300">
+                <h4 className="mb-2 text-[13px] font-semibold text-zinc-100 flex items-center gap-2">
+                  <AlertCircle size={14} className="text-orange-400" />
                   SoundCloud Playback
                 </h4>
                 <p className="text-xs text-zinc-400 leading-relaxed">
-                  Many tracks are restricted to <span className="inline-flex items-center rounded border border-orange-500/20 bg-orange-500/10 px-1.5 py-0.5 text-[10px] font-bold uppercase text-orange-400 mx-1">30 seconds</span>
+                  Many tracks are restricted to <span className="inline-flex items-center rounded-full border border-orange-500/30 bg-gradient-to-r from-orange-500/20 to-red-500/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-orange-300 mx-1">30 seconds</span>
                   This is a known API limitation. Use other addons for full lossless tracks.
                 </p>
               </div>
 
               {/* Notice 2 */}
-              <div className="rounded-xl border border-white/10 bg-white/[0.02] p-4 sm:p-5 shadow-sm">
-                <h4 className="mb-3 text-[13px] font-medium text-zinc-200">
+              <div className="rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 sm:p-5 shadow-sm backdrop-blur-sm">
+                <h4 className="mb-3 text-[13px] font-semibold text-zinc-100 flex items-center gap-2">
+                  <ShieldAlert size={14} className="text-zinc-400" />
                   Community Advisory
                 </h4>
                 <ul className="space-y-3 text-xs text-zinc-400">
                   <li className="flex items-start gap-2.5 leading-relaxed">
-                    <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-px" />
+                    <CheckCircle2 size={14} className="text-emerald-400 shrink-0 mt-px" />
                     <span>Temporary outages (under 24h) resolve automatically. Please wait it out.</span>
                   </li>
                   <li className="flex items-start gap-2.5 leading-relaxed">
@@ -198,16 +228,16 @@ export default function App() {
                     <span>TIDAL blocks are systemic and outside of maintainer control.</span>
                   </li>
                   <li className="flex items-start gap-2.5 leading-relaxed">
-                    <MessageSquare size={14} className="text-amber-500 shrink-0 mt-px" />
+                    <MessageSquare size={14} className="text-amber-400 shrink-0 mt-px" />
                     <span>Some issues may be app-related. For these, open a support ticket.</span>
                   </li>
                 </ul>
               </div>
 
               {/* Support Links */}
-              <div className="relative overflow-hidden rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.03] p-5 sm:p-6 shadow-sm">
-                <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-indigo-500/10 blur-[80px] pointer-events-none" />
-                <h4 className="mb-5 flex items-center gap-2 text-[13px] font-semibold text-indigo-400 relative z-10">
+              <div className="relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/[0.06] to-purple-500/[0.04] p-5 sm:p-6 shadow-lg shadow-indigo-500/[0.08] backdrop-blur-sm">
+                <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-[100px] pointer-events-none" />
+                <h4 className="mb-5 flex items-center gap-2 text-[13px] font-semibold text-indigo-300 relative z-10 tracking-wide">
                   <MessageSquare size={16} />
                   Support & Contact
                 </h4>
@@ -216,34 +246,34 @@ export default function App() {
                     href="https://discord.gg/wq5wRtMhJK"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex flex-col justify-between overflow-hidden rounded-xl border border-white/5 bg-[#121214] p-4"
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-4 backdrop-blur-sm hover:border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/[0.1] transition-all duration-300"
                   >
                     <div className="mb-4">
-                      <p className="text-xs font-medium text-zinc-200 mb-1">Addon Support</p>
-                      <p className="text-[11px] text-zinc-500 leading-relaxed font-light">
+                      <p className="text-xs font-semibold text-zinc-100 mb-1">Addon Support</p>
+                      <p className="text-[11px] text-zinc-400 leading-relaxed font-light">
                         For issues or bug reports of these addons.
                       </p>
                     </div>
-                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-indigo-500/10 px-3 py-2 text-[11px] font-semibold text-indigo-400">
+                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-3 py-2 text-[11px] font-semibold text-indigo-300 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
                       <span>Contact Developer</span>
-                      <ExternalLink size={12} className="opacity-70" />
+                      <ArrowRight size={12} className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
                     </div>
                   </a>
                   <a
                     href="https://discord.gg/9uSRqbEsUu"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex flex-col justify-between overflow-hidden rounded-xl border border-white/5 bg-[#121214] p-4"
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-4 backdrop-blur-sm hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/[0.1] transition-all duration-300"
                   >
                     <div className="mb-4">
-                      <p className="text-xs font-medium text-zinc-200 mb-1">App Support</p>
-                      <p className="text-[11px] text-zinc-500 leading-relaxed font-light">
+                      <p className="text-xs font-semibold text-zinc-100 mb-1">App Support</p>
+                      <p className="text-[11px] text-zinc-400 leading-relaxed font-light">
                         Some issues may be app related, nothing Ricky can do.
                       </p>
                     </div>
-                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-emerald-500/10 px-3 py-2 text-[11px] font-semibold text-emerald-400">
+                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-emerald-500/20 to-teal-500/20 px-3 py-2 text-[11px] font-semibold text-emerald-300 group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
                       <span>Open a Ticket</span>
-                      <ExternalLink size={12} className="opacity-70" />
+                      <ArrowRight size={12} className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
                     </div>
                   </a>
                 </div>
@@ -251,13 +281,13 @@ export default function App() {
                   href="https://eclipsemusic.app/faq"
                   target="_blank"
                   rel="noreferrer"
-                  className="relative z-10 flex items-start sm:items-center justify-between rounded-xl border border-white/5 bg-white/[0.02] p-3 gap-2"
+                  className="group relative z-10 flex items-start sm:items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-3 gap-2 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
                 >
                    <div>
-                     <p className="text-xs font-medium text-zinc-200">Eclipse App FAQ</p>
+                     <p className="text-xs font-semibold text-zinc-200">Eclipse App FAQ</p>
                      <p className="text-[11px] text-zinc-500 mt-0.5 leading-relaxed">General help for the main Eclipse app (not related to addons).</p>
                    </div>
-                   <ExternalLink size={14} className="text-zinc-500 shrink-0 mt-1 sm:mt-0" />
+                   <ArrowRight size={14} className="text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-300" />
                 </a>
               </div>
 
@@ -267,10 +297,12 @@ export default function App() {
         </div>
 
         {/* Quick Review / FAQ Ext */}
-        <section className="mb-10 md:mb-16 rounded-2xl border border-white/10 bg-white/[0.02] p-5 sm:p-6 md:p-8">
+        <section className="mb-10 md:mb-16 rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-5 sm:p-6 md:p-8 backdrop-blur-sm shadow-lg">
           <div className="mb-6 flex items-center gap-2.5">
-             <HelpCircle size={18} className="text-zinc-500" />
-             <h2 className="text-[15px] font-medium text-zinc-100 tracking-tight">Additional Details</h2>
+             <div className="p-2 rounded-lg bg-indigo-500/10">
+               <HelpCircle size={18} className="text-indigo-400" />
+             </div>
+             <h2 className="text-[15px] font-semibold text-zinc-100 tracking-tight">Additional Details</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
              <div className="space-y-1">
@@ -291,9 +323,11 @@ export default function App() {
         </section>
 
         <section className="mb-12 md:mb-16">
-          <div className="rounded-2xl border border-white/10 bg-[#0c0c0e] p-5 sm:p-6">
-            <h3 className="mb-5 flex items-center gap-2 text-[13px] font-medium uppercase tracking-wider text-zinc-400">
-              <CheckCircle2 size={14} className="text-emerald-500" />
+          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#0c0c0e] to-indigo-950/[0.05] p-5 sm:p-6 backdrop-blur-sm shadow-lg">
+            <h3 className="mb-5 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wider text-zinc-300">
+              <div className="p-1.5 rounded-md bg-emerald-500/10">
+                <CheckCircle2 size={14} className="text-emerald-400" />
+              </div>
               Quick Troubleshooting
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
@@ -303,8 +337,8 @@ export default function App() {
                  'Add more addons for fallback',
                  'Wait 6-24h for server resets'
                ].map((tip, i) => (
-                 <li key={tip} className="flex items-center gap-3 rounded-lg border border-transparent p-2.5 text-[13px] text-zinc-300">
-                    <span className="flex h-5 w-5 items-center justify-center rounded bg-white/5 text-[10px] font-medium text-zinc-400 shrink-0">
+                 <li key={tip} className="group flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-2.5 text-[13px] text-zinc-300 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-[10px] font-semibold text-indigo-300 shrink-0 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
                       {i + 1}
                     </span>
                     {tip}
