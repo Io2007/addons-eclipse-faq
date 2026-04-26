@@ -34,9 +34,21 @@
       a, button {
         -webkit-touch-callout: none;
       }
+
+      /* Firefox-specific fixes for better rendering */
+      @supports (-moz-appearance:none) {
+        html, body {
+          font-smooth: always;
+        }
+        
+        /* Force hardware acceleration for smoother animations in Firefox */
+        .group {
+          transform: translateZ(0);
+        }
+      }
     </style>
-    <script type="module" crossorigin src="/assets/index-Cp4Og-SQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Dl8uFKfL.css">
+    <script type="module" crossorigin src="/assets/index-Bd6-viYX.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-bCkfYcgF.css">
   </head>
   <body>
     <div id="root"></div>

@@ -6,6 +6,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-feature-settings: "kern" 1, "liga" 1;
+  -moz-font-feature-settings: "kern" 1, "liga" 1;
 }
 
 /* Firefox button focus fix */
@@ -53,4 +70,43 @@ html {
 ::-moz-selection {
   background-color: rgba(99, 102, 241, 0.3);
   color: rgb(199, 210, 254);
+}
+
+/* Firefox-specific improvements */
+@-moz-document url-prefix() {
+  /* Improve gradient rendering in Firefox */
+  .bg-gradient-to-br,
+  .bg-gradient-to-r {
+    background-size: 100% 100%;
+  }
+
+  /* Fix backdrop blur performance in Firefox */
+  .backdrop-blur-sm {
+    -moz-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Smooth out animations */
+  .transition-all,
+  .transition-opacity,
+  .transition-colors,
+  .transition-transform {
+    -moz-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Fix for rounded corners with borders in Firefox */
+  .rounded-2xl,
+  .rounded-xl,
+  .rounded-lg,
+  .rounded-full {
+    -moz-background-clip: padding-box;
+  }
+}
+
+/* Force GPU acceleration for better animation performance in Firefox */
+.group,
+[class*="hover:"],
+[class*="motion-"] {
+  transform: translateZ(0);
+  will-change: auto;
 }

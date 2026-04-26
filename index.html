@@ -34,6 +34,18 @@
       a, button {
         -webkit-touch-callout: none;
       }
+
+      /* Firefox-specific fixes for better rendering */
+      @supports (-moz-appearance:none) {
+        html, body {
+          font-smooth: always;
+        }
+        
+        /* Force hardware acceleration for smoother animations in Firefox */
+        .group {
+          transform: translateZ(0);
+        }
+      }
     </style>
   </head>
   <body>
