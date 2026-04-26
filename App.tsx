@@ -133,7 +133,11 @@ export default function App() {
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="text-[15px] font-medium text-white">{addon.name}</h3>
                       {addon.badge && (
-                        <span className={`inline-flex items-center rounded border border-${addon.badge.color}-500/20 bg-${addon.badge.color}-500/10 px-1.5 py-0.5 text-[9px] font-bold uppercase text-${addon.badge.color}-400`}>
+                        <span className={`inline-flex items-center rounded border px-1.5 py-0.5 text-[9px] font-bold uppercase ${
+                          addon.badge.color === 'indigo' 
+                            ? 'border-indigo-500/20 bg-indigo-500/10 text-indigo-400' 
+                            : 'border-amber-500/20 bg-amber-500/10 text-amber-400'
+                        }`}>
                           {addon.badge.text}
                         </span>
                       )}
