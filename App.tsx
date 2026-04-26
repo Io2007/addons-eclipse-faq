@@ -46,7 +46,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
               ? 'bg-gradient-to-br from-indigo-500/30 to-purple-500/30 text-indigo-300 shadow-inner' 
               : 'bg-white/[0.04] text-zinc-500'
           }`}>
-            {icon || <HelpCircle size={16} className="sm:size-18 lg:size-20" />}
+            {icon || <HelpCircle size={12} className="sm:size-14 lg:size-16" />}
           </div>
           <span className={`font-semibold leading-snug mt-1 sm:mt-0 tracking-tight text-xs sm:text-sm lg:text-base ${
             isOpen ? 'text-white' : 'text-zinc-300'
@@ -61,7 +61,7 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
             isOpen ? 'text-indigo-400' : 'text-zinc-600'
           }`}
         >
-          <ChevronDown size={14} className="sm:size-18 lg:size-20" />
+          <ChevronDown size={12} className="sm:size-14 lg:size-16" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -95,7 +95,7 @@ export default function App() {
         <header className="mb-6 sm:mb-8 lg:mb-10 xl:mb-12 flex flex-col items-center w-full">
           <div className="space-y-2 sm:space-y-3 lg:space-y-4 max-w-full text-center">
             <h1 
-              className="text-sm sm:text-base font-medium tracking-tight break-words w-full text-white"
+              className="text-base sm:text-lg lg:text-xl font-medium tracking-tight break-words w-full text-white"
             >
               Rick's Addons
             </h1>
@@ -110,27 +110,27 @@ export default function App() {
                 name: 'ClaudeChrome',
                 desc: 'TIDAL HiFi streaming via Cloudflare Workers.',
                 url: 'https://monochrome1.cyrusna29.workers.dev/',
-                icon: <Music size={16} className="sm:size-18 lg:size-20" />,
+                icon: <Music size={12} className="sm:size-14 lg:size-16" />,
                 badge: { text: 'Recommended', color: 'indigo' },
               },
               {
                 name: 'Spotiflac-Eclipse',
                 desc: 'Hybrid Deezer search and lossless TIDAL stream.',
                 url: 'https://spotiflac-eclipse.cyrusna29.workers.dev/',
-                icon: <Radio size={16} className="sm:size-18 lg:size-20" />,
+                icon: <Radio size={12} className="sm:size-14 lg:size-16" />,
               },
               {
                 name: 'Eclipse3',
                 desc: 'SoundCloud streaming. Recommended only as a fallback due to the 30s limit.',
                 url: 'https://eclipse3.cyrusna29.workers.dev/',
-                icon: <Headphones size={16} className="sm:size-18 lg:size-20" />,
+                icon: <Headphones size={12} className="sm:size-14 lg:size-16" />,
                 badge: { text: 'Fallback', color: 'amber' },
               },
               {
                 name: 'All-In-One',
                 desc: 'Universal tool for radio, podcasts, and audiobooks.',
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
-                icon: <Zap size={16} className="sm:size-18 lg:size-20" />,
+                icon: <Zap size={12} className="sm:size-14 lg:size-16" />,
               },
             ].map((addon) => (
               <a
@@ -146,7 +146,7 @@ export default function App() {
                     <div className="p-1.5 sm:p-2 rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300">
                       {addon.icon}
                     </div>
-                    <ExternalLink size={12} className="sm:size-14 lg:size-16 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+                    <ExternalLink size={10} className="sm:size-12 lg:size-14 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
@@ -184,7 +184,7 @@ export default function App() {
           <section className="space-y-3 sm:space-y-4 lg:space-y-5">
             <div className="mb-3 sm:mb-4 lg:mb-5 flex items-center gap-2 sm:gap-2.5">
               <div className="flex h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 items-center justify-center rounded-lg border border-indigo-500/30 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-indigo-300 shadow-md shadow-indigo-500/[0.1]">
-                <AlertCircle size={12} className="sm:size-14 lg:size-16" />
+                <AlertCircle size={10} className="sm:size-12 lg:size-14" />
               </div>
               <h2 className="text-sm sm:text-base lg:text-lg font-semibold text-zinc-100 tracking-tight">Service Policy & Notices</h2>
             </div>
@@ -194,7 +194,7 @@ export default function App() {
               {/* Notice 1 */}
               <div className="group rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.04] to-red-500/[0.02] p-3 sm:p-4 lg:p-5 shadow-sm hover:border-orange-500/30 hover:shadow-md transition-all duration-300">
                 <h4 className="mb-1.5 sm:mb-2 lg:mb-2.5 text-xs sm:text-[13px] lg:text-sm font-semibold text-zinc-100 flex items-center gap-1.5 sm:gap-2">
-                  <AlertCircle size={12} className="sm:size-14 lg:size-16 text-orange-400" />
+                  <AlertCircle size={10} className="sm:size-12 lg:size-14 text-orange-400" />
                   SoundCloud Playback
                 </h4>
                 <p className="text-[11px] sm:text-xs lg:text-sm text-zinc-400 leading-relaxed">
@@ -206,20 +206,20 @@ export default function App() {
               {/* Notice 2 */}
               <div className="rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-3 sm:p-4 lg:p-5 shadow-sm backdrop-blur-sm">
                 <h4 className="mb-2 sm:mb-3 lg:mb-3.5 text-xs sm:text-[13px] lg:text-sm font-semibold text-zinc-100 flex items-center gap-1.5 sm:gap-2">
-                  <ShieldAlert size={12} className="sm:size-14 lg:size-16 text-zinc-400" />
+                  <ShieldAlert size={10} className="sm:size-12 lg:size-14 text-zinc-400" />
                   Community Advisory
                 </h4>
                 <ul className="space-y-2 sm:space-y-3 lg:space-y-3.5 text-[11px] sm:text-xs lg:text-sm text-zinc-400">
                   <li className="flex items-start gap-2 sm:gap-2.5 lg:gap-3 leading-relaxed">
-                    <CheckCircle2 size={12} className="sm:size-14 lg:size-16 text-emerald-400 shrink-0 mt-px" />
+                    <CheckCircle2 size={10} className="sm:size-12 lg:size-14 text-emerald-400 shrink-0 mt-px" />
                     <span>Temporary outages (under 24h) resolve automatically. Please wait it out.</span>
                   </li>
                   <li className="flex items-start gap-2 sm:gap-2.5 lg:gap-3 leading-relaxed">
-                    <ShieldAlert size={12} className="sm:size-14 lg:size-16 text-zinc-500 shrink-0 mt-px" />
+                    <ShieldAlert size={10} className="sm:size-12 lg:size-14 text-zinc-500 shrink-0 mt-px" />
                     <span>TIDAL blocks are systemic and outside of maintainer control.</span>
                   </li>
                   <li className="flex items-start gap-2 sm:gap-2.5 lg:gap-3 leading-relaxed">
-                    <MessageSquare size={12} className="sm:size-14 lg:size-16 text-amber-400 shrink-0 mt-px" />
+                    <MessageSquare size={10} className="sm:size-12 lg:size-14 text-amber-400 shrink-0 mt-px" />
                     <span>Some issues may be app-related. For these, open a support ticket.</span>
                   </li>
                 </ul>
@@ -229,7 +229,7 @@ export default function App() {
               <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/[0.06] to-purple-500/[0.04] p-4 sm:p-5 lg:p-6 shadow-lg shadow-indigo-500/[0.08] backdrop-blur-sm">
                 <div className="absolute -right-16 sm:-right-24 lg:-right-32 -top-16 sm:-top-24 lg:-top-32 h-32 w-32 sm:h-64 sm:w-64 lg:h-80 lg:w-80 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-[60px] sm:blur-[100px] lg:blur-[120px] pointer-events-none" />
                 <h4 className="mb-3 sm:mb-5 lg:mb-6 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-[13px] lg:text-sm font-semibold text-indigo-300 relative z-10 tracking-wide">
-                  <MessageSquare size={14} className="sm:size-16 lg:size-18" />
+                  <MessageSquare size={12} className="sm:size-14 lg:size-16" />
                   Support & Contact
                 </h4>
                 <div className="grid grid-cols-1 gap-2 sm:gap-3 lg:gap-4 sm:grid-cols-2 relative z-10 mb-2 sm:mb-3 lg:mb-4">
@@ -278,7 +278,7 @@ export default function App() {
                      <p className="text-[11px] sm:text-xs lg:text-sm font-semibold text-zinc-200">Eclipse App FAQ</p>
                      <p className="text-[10px] sm:text-[11px] lg:text-xs text-zinc-500 mt-0.5 leading-relaxed">General help for the main Eclipse app (not related to addons).</p>
                    </div>
-                   <ArrowRight size={12} className="sm:size-14 lg:size-16 text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-300" />
+                   <ArrowRight size={10} className="sm:size-12 lg:size-14 text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-300" />
                 </a>
               </div>
 
@@ -298,14 +298,14 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-2">
              <div className="space-y-1">
                 <FaqItem 
-                  icon={<Zap size={14} className="sm:size-16 lg:size-18" />}
+                  icon={<Zap size={12} className="sm:size-14 lg:size-16" />}
                   question="What exactly are these addons?"
                   answer="They are specialized backend scripts (Addons) that allow the Eclipse Music app to access high-quality audio sources that normally require complex authentication or paid tiers, all handled serverless-ly."
                 />
              </div>
              <div className="space-y-1">
                 <FaqItem 
-                  icon={<Clock size={14} className="sm:size-16 lg:size-18" />}
+                  icon={<Clock size={12} className="sm:size-14 lg:size-16" />}
                   question="How often are tokens updated?"
                   answer="Tokens should be manually regenerated whenever playback fails with an 'Authentication Error'. This usually happens after a few days or if the backend instance has a hard reset."
                 />
@@ -317,7 +317,7 @@ export default function App() {
           <div className="rounded-xl sm:rounded-2xl border border-white/10 bg-gradient-to-br from-[#0c0c0e] to-indigo-950/[0.05] p-4 sm:p-5 lg:p-6 xl:p-8 backdrop-blur-sm shadow-lg">
             <h3 className="mb-3 sm:mb-5 lg:mb-6 flex items-center gap-1.5 sm:gap-2 lg:gap-2.5 text-xs sm:text-[13px] lg:text-sm font-semibold uppercase tracking-wider text-zinc-300">
               <div className="p-1 sm:p-1.5 lg:p-2 rounded-md bg-emerald-500/10">
-                <CheckCircle2 size={12} className="sm:size-14 lg:size-16 text-emerald-400" />
+                <CheckCircle2 size={10} className="sm:size-12 lg:size-14 text-emerald-400" />
               </div>
               Quick Troubleshooting
             </h3>
