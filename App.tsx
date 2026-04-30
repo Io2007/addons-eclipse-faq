@@ -149,6 +149,13 @@ export default function App() {
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTueIUOQATc6lrir4FpwhFl9P656MBFPkvOV03N5P3zlA&s=10',
               },
+              {
+                name: 'YouTube Music',
+                desc: 'Stream from YouTube Music — Songs, Videos, Albums, Artists, Playlists. HLS primary, MP4 fallback.',
+                url: 'https://youtube.cyrusna29.workers.dev/',
+                icon: 'https://www.gstatic.com/youtube/media/ytm/images/applauncher/music_icon_144x144.png',
+                badge: { text: 'New', color: 'indigo' },
+              },
             ].map((addon) => (
               <a
                 key={addon.name}
