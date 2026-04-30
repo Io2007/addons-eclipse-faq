@@ -153,7 +153,7 @@ export default function App() {
                 name: 'YouTube Music',
                 desc: 'Stream from YouTube Music — Songs, Videos, Albums, Artists, Playlists. HLS primary, MP4 fallback.',
                 url: 'https://youtube.cyrusna29.workers.dev/',
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/YouTube_Music_icon.svg/512px-YouTube_Music_icon.svg.png',
+                icon: 'https://www.gstatic.com/youtube/media/ytm/images/applauncher/music_icon_144x144.png',
                 badge: { text: 'New', color: 'indigo' },
               },
             ].map((addon) => (
