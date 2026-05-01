@@ -4,43 +4,57 @@ dist/
 build/
 *.o
 *.obj
-*.exe
-*.dll
-*.so
-*.a
 *.out
 
 # Dependencies
 node_modules/
-venv/
 .venv/
+venv/
 __pycache__/
-.mypy_cache/
-.pytest_cache/
-target/
-.gradle/
+*.egg-info/
 
-# Editors
-.vscode/
-.idea/
+# Logs and temporary files
+*.log
+*.tmp
 *.swp
 *.swo
-*.tmp
 
-# Logs
-*.log
-
-# Environment
+# Environment variables
 .env
 .env.local
 *.env.*
 
-# Coverage
+# Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
 coverage/
 htmlcov/
 .coverage
 
-# System
-.DS_Store
-Thumbs.db
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+
+# JavaScript/Node specific
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.a
 ```

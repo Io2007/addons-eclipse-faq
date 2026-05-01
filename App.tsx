@@ -30,14 +30,14 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
     <div className="mb-3">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full p-4 sm:p-5 flex items-start sm:items-center justify-between text-left rounded-xl gap-4 border backdrop-blur-sm ${
+        className={`w-full p-4 sm:p-5 flex items-start sm:items-center justify-between text-left rounded-xl gap-4 border backdrop-blur-sm will-change-transform ${
           isOpen 
             ? 'bg-gradient-to-br from-indigo-500/[0.08] to-purple-500/[0.04] border-indigo-500/30 shadow-lg shadow-indigo-500/[0.08]' 
             : 'bg-white/[0.02] border-white/10'
         }`}
       >
         <div className="flex items-start sm:items-center gap-3 sm:gap-4">
-          <div className={`p-2.5 rounded-xl ${
+          <div className={`p-2.5 rounded-xl will-change-transform ${
             isOpen 
               ? 'bg-gradient-to-br from-indigo-500/30 to-purple-500/30 text-indigo-300 shadow-inner' 
               : 'bg-white/[0.04] text-zinc-500'
@@ -52,8 +52,8 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
         </div>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
-          className={`shrink-0 mt-2 sm:mt-0 ${
+          transition={{ duration: 0.25, ease: [0.4, 0.0, 0.2, 1] }}
+          className={`shrink-0 mt-2 sm:mt-0 will-change-transform ${
             isOpen ? 'text-indigo-400' : 'text-zinc-600'
           }`}
         >
@@ -66,8 +66,8 @@ function FaqItem({ question, answer, icon }: FaqItemProps) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="overflow-hidden"
+            transition={{ duration: 0.25, ease: [0.4, 0.0, 0.2, 1] }}
+            className="overflow-hidden will-change-transform"
           >
             <div className="p-5 pt-2 text-zinc-400 leading-relaxed text-sm ml-12 sm:ml-14 bg-gradient-to-r from-indigo-500/[0.03] to-transparent rounded-b-xl -mx-5 px-5">
               {answer}
@@ -85,14 +85,14 @@ export default function App() {
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Main gradient orb */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full opacity-50" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full opacity-50 will-change-transform" />
         {/* Secondary accent orbs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-purple-500/8 blur-[80px] rounded-full opacity-30 animate-pulse" />
-        <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-indigo-600/8 blur-[80px] rounded-full opacity-30 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-purple-500/8 blur-[80px] rounded-full opacity-30 animate-pulse will-change-transform" />
+        <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-indigo-600/8 blur-[80px] rounded-full opacity-30 animate-pulse will-change-transform" style={{ animationDelay: '1s' }} />
         {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] will-change-transform" />
         {/* Noise texture for depth */}
-        <div className="absolute inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')]" />
+        <div className="absolute inset-0 opacity-[0.015] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJnoiPjxmZVR1cmJ1bGVuY2UgdHlwZT0iZnJhY3RhbE5vaXNlIiBiYXNlRnJlcXVlbmN5PSIwLjY1IiBudW1PY3RhdmVzPSIzIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2cpIiBvcGFjaXR5PSIwLjUiLz48L3N2Zz4=')] will-change-transform" />
       </div>
       
       <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 md:py-16 relative z-10">
@@ -149,21 +149,28 @@ export default function App() {
                 url: 'https://all-in-one.cyrusna29.workers.dev/',
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTueIUOQATc6lrir4FpwhFl9P656MBFPkvOV03N5P3zlA&s=10',
               },
+              {
+                name: 'YouTube Music',
+                desc: 'Stream from YouTube Music — Songs, Videos, Albums, Artists, Playlists. HLS primary, MP4 fallback.',
+                url: 'https://youtube.cyrusna29.workers.dev/',
+                icon: 'https://www.gstatic.com/youtube/media/ytm/images/applauncher/music_icon_144x144.png',
+                badge: { text: 'New', color: 'indigo' },
+              },
             ].map((addon) => (
               <a
                 key={addon.name}
                 href={addon.url}
                 target="_blank"
                 rel="noreferrer"
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 sm:p-5 backdrop-blur-sm shadow-sm hover:shadow-xl hover:shadow-indigo-500/[0.08] hover:border-indigo-500/20 transition-all duration-300"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-white/[0.01] p-4 sm:p-5 backdrop-blur-sm shadow-sm hover:shadow-xl hover:shadow-indigo-500/[0.08] hover:border-indigo-500/20 transition-all duration-200 ease-out"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-purple-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.02] to-purple-500/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out" />
                 <div className="space-y-4 relative z-10">
                   <div className="flex items-center justify-between text-zinc-500">
-                    <div className="rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-300 w-8 h-8 flex items-center justify-center overflow-hidden">
+                    <div className="rounded-lg bg-white/[0.04] group-hover:bg-indigo-500/10 transition-colors duration-200 ease-out w-8 h-8 flex items-center justify-center overflow-hidden">
                       <img src={addon.icon} alt={addon.name} className="w-full h-full object-cover rounded-md" />
                     </div>
-                    <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+                    <ExternalLink size={14} className="opacity-50 group-hover:opacity-100 transition-opacity duration-200 ease-out" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
@@ -186,7 +193,7 @@ export default function App() {
                 <div className="mt-6 border-t border-white/5 pt-3 relative z-10">
                   <div className="flex items-center gap-2.5 text-[11px] font-mono text-zinc-500 truncate">
                     <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
-                    <span className="group-hover:text-zinc-400 transition-colors duration-300">{addon.url.replace('https://', '')}</span>
+                    <span className="group-hover:text-zinc-400 transition-colors duration-200 ease-out">{addon.url.replace('https://', '')}</span>
                   </div>
                 </div>
               </a>
@@ -209,7 +216,7 @@ export default function App() {
             <div className="space-y-3">
               
               {/* Notice 1 */}
-              <div className="group rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.04] to-red-500/[0.02] p-4 sm:p-5 shadow-sm hover:border-orange-500/30 hover:shadow-md transition-all duration-300">
+              <div className="group rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[0.04] to-red-500/[0.02] p-4 sm:p-5 shadow-sm hover:border-orange-500/30 hover:shadow-md transition-all duration-200 ease-out">
                 <h4 className="mb-2 text-[13px] font-semibold text-zinc-100 flex items-center gap-2">
                   <AlertCircle size={14} className="text-orange-400" />
                   SoundCloud Playback
@@ -254,7 +261,7 @@ export default function App() {
                     href="https://discord.gg/wq5wRtMhJK"
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-4 backdrop-blur-sm hover:border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/[0.1] transition-all duration-300"
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-4 backdrop-blur-sm hover:border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/[0.1] transition-all duration-200 ease-out"
                   >
                     <div className="mb-4">
                       <p className="text-xs font-semibold text-zinc-100 mb-1">Addon Support</p>
@@ -262,16 +269,16 @@ export default function App() {
                         For issues or bug reports of these addons.
                       </p>
                     </div>
-                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-3 py-2 text-[11px] font-semibold text-indigo-300 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-indigo-500/20 to-purple-500/20 px-3 py-2 text-[11px] font-semibold text-indigo-300 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-200 ease-out">
                       <span>Contact Developer</span>
-                      <ArrowRight size={12} className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={12} className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-200 ease-out" />
                     </div>
                   </a>
                   <a
                     href="https://discord.gg/9uSRqbEsUu"
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-4 backdrop-blur-sm hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/[0.1] transition-all duration-300"
+                    className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-4 backdrop-blur-sm hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/[0.1] transition-all duration-200 ease-out"
                   >
                     <div className="mb-4">
                       <p className="text-xs font-semibold text-zinc-100 mb-1">App Support</p>
@@ -279,9 +286,9 @@ export default function App() {
                         Some issues may be app related, nothing Ricky can do.
                       </p>
                     </div>
-                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-emerald-500/20 to-teal-500/20 px-3 py-2 text-[11px] font-semibold text-emerald-300 group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-300">
+                    <div className="inline-flex w-full items-center justify-between rounded-lg bg-gradient-to-r from-emerald-500/20 to-teal-500/20 px-3 py-2 text-[11px] font-semibold text-emerald-300 group-hover:from-emerald-500/30 group-hover:to-teal-500/30 transition-all duration-200 ease-out">
                       <span>Open a Ticket</span>
-                      <ArrowRight size={12} className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-300" />
+                      <ArrowRight size={12} className="opacity-70 group-hover:translate-x-0.5 transition-transform duration-200 ease-out" />
                     </div>
                   </a>
                 </div>
@@ -289,13 +296,13 @@ export default function App() {
                   href="https://eclipsemusic.app/faq"
                   target="_blank"
                   rel="noreferrer"
-                  className="group relative z-10 flex items-start sm:items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-3 gap-2 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-300"
+                  className="group relative z-10 flex items-start sm:items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] p-3 gap-2 backdrop-blur-sm hover:bg-white/[0.05] hover:border-white/20 transition-all duration-200 ease-out"
                 >
                    <div>
                      <p className="text-xs font-semibold text-zinc-200">Eclipse App FAQ</p>
                      <p className="text-[11px] text-zinc-500 mt-0.5 leading-relaxed">General help for the main Eclipse app (not related to addons).</p>
                    </div>
-                   <ArrowRight size={14} className="text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-300" />
+                   <ArrowRight size={14} className="text-zinc-500 shrink-0 mt-1 sm:mt-0 group-hover:translate-x-0.5 group-hover:text-zinc-400 transition-all duration-200 ease-out" />
                 </a>
               </div>
 
@@ -345,8 +352,8 @@ export default function App() {
                  'Add more addons for fallback',
                  'Wait 6-24h for server resets'
                ].map((tip, i) => (
-                 <li key={tip} className="group flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-2.5 text-[13px] text-zinc-300 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-[10px] font-semibold text-indigo-300 shrink-0 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-300">
+                 <li key={tip} className="group flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-2.5 text-[13px] text-zinc-300 hover:bg-white/[0.04] hover:border-white/10 transition-all duration-200 ease-out">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-indigo-500/20 to-purple-500/20 text-[10px] font-semibold text-indigo-300 shrink-0 group-hover:from-indigo-500/30 group-hover:to-purple-500/30 transition-all duration-200 ease-out">
                       {i + 1}
                     </span>
                     {tip}
